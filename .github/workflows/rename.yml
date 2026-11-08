@@ -1,0 +1,19 @@
+name: Rename space-3 to index
+
+on:
+  workflow_dispatch:
+
+jobs:
+  rename:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - name: Rename space-3.html to index.html
+        run: |
+          git config user.name "Leisurewine"
+          git config user.email "leisurewine@users.noreply.github.com"
+          git mv space-3.html index.html
+          git commit -m "Rename space-3.html to index.html"
+          git push
